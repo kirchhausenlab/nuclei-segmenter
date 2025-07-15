@@ -31,6 +31,12 @@ Replace `/path/to/nuclei-segmenter` with the actual path where you've cloned thi
 
 ## Processing Steps
 
+### 0. Download Model Weights
+
+The model weights are too large to host on GitHub so please download the `root.tar` file from this [link](https://drive.google.com/file/d/1cKxFwN0p7n7Qn1Ix3SWRCGPISG3qvWjH/view?usp=sharing).    
+
+Then untar the file called root somewhere convenient. You will need them later during the prediction step.
+
 ### 1. Split TIFF Channels
 
 Break multi-channel TIFF stacks into individual channels:
@@ -52,7 +58,7 @@ rm /path/to/your/working/dir/*.tif
 Run predictions using a pretrained model:
 
 ```bash
-python predict.py --device 0 --input_dir /path/to/your/working/dir --channel_id 1
+python predict.py --device 0 --input_dir /path/to/your/working/dir --channel_id 1 --root_dir /path/to/model/weights/root
 ```
 
 Parameters:
@@ -60,6 +66,7 @@ Parameters:
 * `device`: GPU number (e.g., 0)
 * `input_dir`: Path to your working directory
 * `channel_id`: Channel number for nuclei segmentation
+* `root_dir`: Where you put the model weights `root` directory from Step 0
 
 Ensure the pretrained model file is available or adjust the path accordingly in `predict.py`.
 
