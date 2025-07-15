@@ -111,12 +111,13 @@ if __name__ == "__main__":
     parser.add_argument("--device", type=int, required=True, help="CUDA device number (e.g., 1 for cuda:1)")
     parser.add_argument("--input_dir", type=str, required=True, help="Top directory path")
     parser.add_argument("--channel_id", type=int, required=True, help="Channel to segment")
+    parser.add_argument("--root_dir", type=str, required=True, help="Path to root directory containing model checkpoint")
 
 
     args = parser.parse_args()
 
     TOP_DIR = args.input_dir
-    ROOT_DIR = "/nfs/tkhome/pstock/Desktop/micro-sam_tk/root"
+    ROOT_DIR = args.root_dir
     model_type = "vit_h"
     checkpoint_name = "nuclei_ft_feb20"
     device = torch.device(f"cuda:{args.device}")
