@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1020293812.svg)](https://doi.org/10.5281/zenodo.24119777)
+
 # nuclei-segmenter
 Pipeline for segmenting nuclei and masking corresponding fluorescent signals
 
